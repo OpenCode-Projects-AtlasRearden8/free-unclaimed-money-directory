@@ -1,0 +1,266 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-11-05",
+  "disclaimer": "Information only. This directory is never financial, legal, or tax advice. Always confirm details on the official source website before you act.",
+  "scam_warning": {
+    "headline": "Real unclaimed money programs are free. Walk away from anyone who charges you.",
+    "rules": [
+      "Never pay a finder, locator, or 'asset recovery' fee to reach money on this list. Claiming from a state, federal, or industry-run database costs nothing or only the government's own fees.",
+      "If a company contacts you out of the blue about 'found money', you do not need them. You can search every database in this directory yourself, on your own, in minutes.",
+      "Unsolicited callers, texts, or emails asking for your Social Security number, bank login, or an upfront payment are scams. Hang up, delete, and search the official site yourself.",
+      "Verify the address bar: official government searchers end in .gov. State officers and the industry associations listed here are named on each card.",
+      "In most states, licensed finders may legally take 10-35% of your money as a commission - yet the exact same claim filed directly with the state is free. Everything here is the direct path.",
+      "No card in this directory is an affiliate link. We are paid nothing by any program listed."
+    ]
+  },
+  "core_documents": {
+    "headline": "Documents to gather before you start",
+    "items": [
+      "Photo ID (driver's license or passport) for yourself, and for a deceased owner a death certificate",
+      "Every last name, first name, and middle initial the owner may have used, plus any maiden or former names",
+      "Every address the owner lived at in the state you are searching - claim forms ask for these",
+      "Last four digits of the owner's Social Security number (you type it on the official claim form only; a lookup site asking your full SSN just to search is a scam signal)",
+      "For a deceased owner: proof you are the executor, heir, or administrator, plus the probate paperwork your state requests",
+      "For businesses or organizations: registration documents and proof of your authority to sign",
+      "A pen and a place to keep claim reference numbers - you may file several claims in one sitting"
+    ]
+  },
+  "finders": [
+    {
+      "id": "naupa-state-map",
+      "name": "NAUPA state-by-state official map",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "All US states + DC (via each state office)",
+      "operator": "National Association of Unclaimed Property Administrators (NAUPA), the official association of state unclaimed-property officers",
+      "url": "https://unclaimed.org/",
+      "what_it_finds": "The official starting point for the state database that holds forgotten bank accounts, uncashed payroll and dividend checks, insurance payouts, utility deposits, stocks, safe-deposit-box contents, and credit balances in the owner's name. Every state runs its own free search.",
+      "docs_ready": [
+        "Prior addresses in the state (claims are filed with each state where the property sat)",
+        "Name variations and former names",
+        "Photo ID and Social Security number for the claim form",
+        "For a relative's property: your relationship and their death certificate"
+      ],
+      "tips": "Pick your state from the map. Most smaller balances are approved in weeks if your address history is accurate. Searching a name in every state where the person lived is normal - property usually sits in the state of the last known address, not where you live now."
+    },
+    {
+      "id": "missingmoney",
+      "name": "MissingMoney.com multi-state search",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "Most participating US states in one search",
+      "operator": "NAUPA-endorsed central search covering most participating state databases",
+      "url": "https://missingmoney.com/",
+      "what_it_finds": "Several dozen state unclaimed-property databases at once: dormant checking and savings accounts, uncashed checks, refunds, security deposits, and small stock holdings reported by banks and employers to the states.",
+      "docs_ready": [
+        "Photo ID for each owner (including joint owners)",
+        "Address history for the owner",
+        "Your Social Security number for the claim form"
+      ],
+      "tips": "It does not cover every state, so also check your state's own site through the NAUPA map. Searching twice (here and on your state site) takes minutes and costs nothing."
+    },
+    {
+      "id": "indiana-unclaimed",
+      "name": "Indiana Unclaimed Property search",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "Indiana",
+      "operator": "Indiana Attorney General's Unclaimed Property Division",
+      "url": "https://www.indianaunclaimed.gov/",
+      "what_it_finds": "Money and property reported to Indiana: dormant accounts, uncashed wages, insurance proceeds, utility and landlord deposits, and safe-deposit-box contents for Indiana addresses.",
+      "docs_ready": [
+        "Photo ID",
+        "Social Security number",
+        "Address that matches the reported property",
+        "Death certificate and proof of heirship for a relative's claim"
+      ],
+      "tips": "Claims are free and can be filed online. If the name search shows nothing, try the maiden name, initials, or a MISS/MISS- spelling the reporting company may have used."
+    },
+    {
+      "id": "california-unclaimed",
+      "name": "California Unclaimed Property search",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "California",
+      "operator": "California State Controller's Office",
+      "url": "https://ucpi.sco.ca.gov/",
+      "what_it_finds": "Forgotten bank accounts, uncashed checks, stocks, mutual funds, insurance proceeds, and safe-deposit contents held for California owners.",
+      "docs_ready": [
+        "Photo ID",
+        "Address history for the owner",
+        "Social Security number",
+        "Probate or heirship documents for deceased owners"
+      ],
+      "tips": "Search is free; download-and-mail claim forms are the normal path for larger amounts."
+    },
+    {
+      "id": "texas-unclaimed",
+      "name": "Texas Unclaimed Property search",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "Texas",
+      "operator": "Texas Comptroller of Public Accounts",
+      "url": "https://claimittexas.gov/",
+      "what_it_finds": "Dormant accounts, uncashed payroll and vendor checks, mineral and royalty proceeds, insurance benefits, and court-held money reported to Texas.",
+      "docs_ready": [
+        "Photo ID",
+        "Social Security number",
+        "For estates: letters testamentary or a small-estate affidavit as Texas requires"
+      ],
+      "tips": "File online for free. Oil and gas royalty claims are common here - bring lease or deed info if the property traces to land."
+    },
+    {
+      "id": "new-york-unclaimed",
+      "name": "New York Unclaimed Funds search",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "New York",
+      "operator": "New York State Office of the State Comptroller",
+      "url": "https://www.osc.state.ny.us/unclaimed-funds",
+      "what_it_finds": "Dormant savings and checking accounts, uncashed checks, insurance benefits, escrow balances, and stock reported to New York State.",
+      "docs_ready": [
+        "Photo ID",
+        "Social Security number",
+        "Address history",
+        "For deceased owners: death certificate plus documents proving your authority"
+      ],
+      "tips": "Claims are free at any time. Beware letter offers to 'recover' New York funds for a percentage - filing yourself through the Comptroller costs nothing."
+    },
+    {
+      "id": "florida-unclaimed",
+      "name": "Florida Unclaimed Property search",
+      "category": "state-unclaimed-property",
+      "jurisdiction": "Florida",
+      "operator": "Florida Chief Financial Officer",
+      "url": "https://www.fltreasurehunt.gov/",
+      "what_it_finds": "Dormant accounts, uncashed checks, dormant school and bank accounts, unclaimed insurance and utility deposits held by Florida.",
+      "docs_ready": [
+        "Photo ID",
+        "Social Security number",
+        "For deceased owners: death certificate and proof of kinship"
+      ],
+      "tips": "Payments are free and can be electronic. There is a known pattern of paid finders advertising Florida 'Treasure Hunt' balances - the state site is the free source."
+    },
+    {
+      "id": "pbgc-missing-participants",
+      "name": "PBGC Missing Participants search",
+      "category": "federal-pension",
+      "jurisdiction": "US private-sector terminated pension plans",
+      "operator": "Pension Benefit Guaranty Corporation (PBGC), a US federal agency",
+      "url": "https://www.pbgc.gov/missing-participants",
+      "what_it_finds": "Your own unclaimed retirement benefit in a private-sector pension plan that ended among tens of thousands of participants the plan could not locate - guaranteed lifetime payments, not a one-time check.",
+      "docs_ready": [
+        "Full legal name and any name changes",
+        "Social Security number",
+        "Dates and names of employers you (or the late plan member) worked for",
+        "Government ID for identity verification"
+      ],
+      "tips": "Searching is free and takes minutes. Never let anyone take a cut of a pension you can locate here yourself."
+    },
+    {
+      "id": "dol-abandoned-plans",
+      "name": "DOL abandoned retirement plan search",
+      "category": "federal-pension",
+      "jurisdiction": "US private-sector plan terminations",
+      "operator": "US Department of Labor, Employee Benefits Security Administration (EBSA)",
+      "url": "https://www.dol.gov/agencies/ebsa/employers-and-advisers/plan-termination/abandoned-plan-program",
+      "what_it_finds": "Participation in a workplace 401(k) or pension plan reported to EBSA when the company closed and left a plan abandoned - with contacts for the institution now holding the assets.",
+      "docs_ready": [
+        "Employer name and dates of employment",
+        "Any old benefit statements or Form W-2s you kept",
+        "Social Security number"
+      ],
+      "tips": "Also free: EBSA's benefits advisors take calls at 1-866-444-3272 (the federal line is free to call; it is the US Department of Labor, not a finder)."
+    },
+    {
+      "id": "fdic-unclaimed-deposits",
+      "name": "FDIC unclaimed deposits search",
+      "category": "bank-credit-union",
+      "jurisdiction": "US federally insured banks placed in receivership",
+      "operator": "Federal Deposit Insurance Corporation (FDIC), a US federal agency",
+      "url": "https://closedbanks.fdic.gov/funds/",
+      "what_it_finds": "Your un-insured-or-unclaimed deposit or dividend in a failed bank: money the FDIC is still holding, and any account interest owed, with the mail-in or online claim route.",
+      "docs_ready": [
+        "Photo ID",
+        "Social Security number or taxpayer ID",
+        "Proof of the account (old statement, register, deposit slip) if you have it",
+        "Death certificate and authority documents where the owner is deceased"
+      ],
+      "tips": "Search first name and last name variations. Claims are free; filing requires mailing ID documents only through the FDIC's own instructions on that page."
+    },
+    {
+      "id": "ncua-unclaimed-deposits",
+      "name": "NCUA unclaimed credit-union deposits search",
+      "category": "bank-credit-union",
+      "jurisdiction": "US failed credit unions",
+      "operator": "National Credit Union Administration (NCUA), a US federal agency",
+      "url": "https://www.ncua.gov/support-services/credit-union-resources-expansion/asset-management-assistance-center",
+      "what_it_finds": "Unclaimed share accounts, share drafts, and dividends in closed credit unions, plus instructions for claiming them through the federal Asset Management and Assistance Center.",
+      "docs_ready": [
+        "Photo ID",
+        "Social Security number",
+        "Old credit-union statements if you kept any",
+        "Proof of authority for a deceased owner's account"
+      ],
+      "tips": "Credit-union payouts can include dividend interest, so even a small remembered account is worth a free search."
+    },
+    {
+      "id": "naic-life-policy-locator",
+      "name": "NAIC Life Insurance Policy Locator",
+      "category": "insurance",
+      "jurisdiction": "US life insurers reporting to state regulators",
+      "operator": "National Association of Insurance Commissioners (NAIC), the official association of US state insurance regulators",
+      "url": "https://eapps.naic.org/life-policy-locator/",
+      "what_it_finds": "A deceased loved one's unclaimed life insurance policy or annuity. Your request goes to member insurers, and any company holding a match contacts you directly and pays you directly - the tool never sees your results and no money changes hands through it.",
+      "docs_ready": [
+        "Deceased person's full legal name",
+        "Date of birth and date of death (death certificate helps)",
+        "Social Security number for the deceased, if you have it",
+        "Your own ID and contact information as the requestor"
+      ],
+      "tips": "Free request, no account needed. Results arrive by mail only from the insurer. There is no way to 'search your name' here by design - it is for locating a specific deceased person's policy, so have the paperwork above ready. Also worth one more search: the state insurance department where the person lived."
+    },
+    {
+      "id": "irs-unclaimed-refunds",
+      "name": "IRS Where's My Refund and undeliverable federal refunds",
+      "category": "tax-refund",
+      "jurisdiction": "US federal income tax",
+      "operator": "Internal Revenue Service (IRS), a US federal agency",
+      "url": "https://www.irs.gov/refunds",
+      "what_it_finds": "A federal income-tax refund that never arrived - an undeliverable check, a refund you were owed but never claimed on a filed return, or a refund the IRS still owes for a year you brought in income and did not file at all because you could still claim it.",
+      "docs_ready": [
+        "Social Security number (or ITIN)",
+        "Filing status and exact refund amount expected",
+        "Copy of the tax return for the year, or wage statements to file it now",
+        "Current address - a change of address you file is what makes a reissued check arrive"
+      ],
+      "tips": "You generally have three years from the filing deadline to claim a refund for a year you did not file. Never pay a company a percentage of 'a refund they found for you' - the IRS pays you directly."
+    },
+    {
+      "id": "treasury-hunt",
+      "name": "Treasury Hunt for matured savings bonds",
+      "category": "savings-bonds",
+      "jurisdiction": "US Savings Bonds",
+      "operator": "US Department of the Treasury, Bureau of the Fiscal Service",
+      "url": "https://www.treasurydirect.gov/savings-bonds/treasury-hunt/",
+      "what_it_finds": "US savings bonds that reached final maturity but were never cashed, bonds, or bond interest payments the Treasury owes the owner or heirs.",
+      "docs_ready": [
+        "Owner's Social Security number",
+        "Owner's full legal name",
+        "For deceased owners: death certificate and proof of your right to redeem",
+        "Any bond paper certificates you physically find (they may already be replaced electronically here)"
+      ],
+      "tips": "Free and instant to search; results are handled by TreasuryDirect. Bonds older than 40 years have stopped earning interest, so cashing promptly makes sense once found."
+    },
+    {
+      "id": "hud-fha-refunds",
+      "name": "HUD/FHA mortgage insurance premium refund search",
+      "category": "other-federal-refund",
+      "jurisdiction": "US FHA-insured mortgages",
+      "operator": "US Department of Housing and Urban Development (HUD), a US federal agency",
+      "url": "https://www.hud.gov/program_offices/housing/rmra/refunds",
+      "what_it_finds": "An unclaimed FHA upfront mortgage insurance premium refund or share due when a property with FHA financing was sold or the loan was paid off early in certain years.",
+      "docs_ready": [
+        "FHA case number if you have it (it is on the loan closing paperwork)",
+        "Name on the loan",
+        "Property address",
+        "Social Security number"
+      ],
+      "tips": "HUD pays refunds itself and warns about third parties taking a cut of these exact refunds. Search is free."
+    }
+  ]
+}

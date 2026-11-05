@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Unclaimed Money Directory — official finders, zero fees</title>
+<meta name="description" content="A static, offline directory of official, free government and regulator-run searchers for money you may already own: state unclaimed property, federal pensions, failed-bank deposits, life insurance, tax refunds, and savings bonds. Information only, never financial advice.">
+<style>
+  :root {
+    --ink: #24201c;
+    --paper: #fdfaf4;
+    --card: #ffffff;
+    --accent: #1d5c4d;
+    --accent-soft: #e4f0ec;
+    --warn-ink: #7a2e12;
+    --warn-bg: #fdeee4;
+    --warn-border: #e2a887;
+    --border: #e6e0d6;
+    --muted: #6d655b;
+    --focus: #b45f10;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.55 Georgia, "Times New Roman", serif;
+  }
+  header.masthead {
+    background: var(--accent);
+    color: #f4fbf8;
+    padding: 2rem 1rem 1.5rem;
+  }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+  header.masthead .wrap { padding: 0 1rem; }
+  .masthead h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin: 0 0 .35rem;
+    letter-spacing: .01em;
+  }
+  .masthead p { margin: 0; max-width: 46rem; font-size: 1.02rem; }
+  .disclaimer {
+    background: #f7f3ea;
+    border-bottom: 1px solid var(--border);
+    padding: .6rem 0;
+    font-size: .92rem;
+    color: var(--muted);
+  }
+  .disclaimer strong { color: var(--ink); }
+  section#warnings {
+    margin: 1.25rem auto;
+    background: var(--warn-bg);
+    border: 2px solid var(--warn-border);
+    border-radius: .75rem;
+    padding: 1rem 1.25rem;
+    max-width: 70rem;
+  }
+  #warnings h2 { margin: 0 0 .5rem; font-size: 1.25rem; color: var(--warn-ink); }
+  #warnings ul { margin: 0; padding-left: 1.25rem; }
+  #warnings li { margin: .4rem 0; }
+  #warnings .closed { display: none; }
+  #warnings .details-toggle { margin: 0.5rem 0 0; }
+  button.toggle {
+    font: 0.95rem Georgia, serif;
+    background: var(--warn-ink);
+    color: #fff;
+    border: 0;
+    border-radius: .5rem;
+    padding: .4rem .8rem;
+    cursor: pointer;
+  }
+  button.toggle:focus-visible,
+  input:focus-visible,
+  a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .divider { margin: 1.5rem auto 0; max-width: 70rem; }
+  .divider h2 { font-size: 1.25rem; margin: 0 0 .4rem; }
+  .divider ul { padding-left: 1.25rem; margin: 0 0 1rem; columns: 2; column-gap: 2rem; }
+  .divider li { margin: .3rem 0; break-inside: avoid; }
+  @media (max-width: 40rem) { .divider ul { columns: 1; } }
+  .controls {
+    margin: 1.5rem auto 1rem;
+    max-width: 70rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    align-items: center;
+  }
+  .controls label.search-label { font-weight: bold; }
+  #search {
+    flex: 1 1 16rem;
+    font: inherit;
+    padding: .55rem .8rem;
+    border: 1px solid var(--border);
+    border-radius: .55rem;
+    background: #fff;
+    min-width: 12rem;
+  }
+  .filters { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .filters button {
+    font: .92rem Georgia, serif;
+    padding: .4rem .75rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--accent);
+    cursor: pointer;
+  }
+  .filters button[aria-pressed="true"] {
+    background: var(--accent);
+    color: #fff;
+  }
+  #count { color: var(--muted); font-size: .95rem; margin: 0 auto 1rem; max-width: 70rem; }
+  .cards {
+    max-width: 70rem;
+    margin: 0 auto 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+    gap: 1rem;
+  }
+  article.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: .8rem;
+    padding: 1.1rem 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(60, 50, 40, .06);
+  }
+  article.card h3 { margin: 0 0 .15rem; font-size: 1.12rem; line-height: 1.3; }
+  .badges { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .6rem; }
+  .badge {
+    font: .72rem/1.4 Georgia, serif;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: .4rem;
+    padding: .1rem .45rem;
+  }
+  .badge.jur { background: #fbf3e6; color: #7a5b13; border-color: #c9a54b; }
+  article.card p.operator { color: var(--muted); font-size: .9rem; margin: 0 0 .55rem; }
+  article.card p.finds { margin: 0 0 .65rem; }
+  article.card h4 {
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--accent);
+    margin: 0 0 .2rem;
+  }
+  article.card ul.docs { margin: 0 0 .65rem; padding-left: 1.15rem; font-size: .93rem; }
+  article.card ul.docs li { margin: .18rem 0; }
+  article.card p.tips { font-size: .93rem; color: #4c4438; margin: 0 0 .8rem; }
+  article.card a.go {
+    margin-top: auto;
+    align-self: flex-start;
+    text-decoration: none;
+    background: var(--accent);
+    color: #fff;
+    padding: .5rem .9rem;
+    border-radius: .55rem;
+    font-size: .95rem;
+  }
+  article.card a.go:hover { background: #16463b; }
+  article.card .free { font-size: .85rem; color: var(--accent); margin: .5rem 0 0; }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.2rem 0 2.5rem;
+    color: var(--muted);
+    font-size: .92rem;
+  }
+  footer p { margin: .3rem 0; max-width: 70rem; }
+  @media print {
+    header.masthead { background: #fff; color: #000; }
+    .controls, #count { display: none; }
+    .cards { grid-template-columns: 1fr; }
+    #warnings { border-color: #000; }
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <h1>Free Unclaimed Money Directory</h1>
+    <p>Money you may already own — and the official, free, government-run searchers that can find it. State unclaimed property, federal pensions, failed-bank deposits, old life insurance, returned tax refunds, and savings bonds. Always start at the source listed here. Never through a paid finder.</p>
+  </div>
+</header>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <strong>Information only.</strong> This directory is never financial, legal, or tax advice. Links and rules change; confirm every detail on the official website before you claim anything.
+  </div>
+</div>
+
+<main>
+  <section id="warnings" aria-labelledby="warnings-h">
+    <h2 id="warnings-h">⚠️ Scam warning — real programs are free</h2>
+    <p id="scam-headline">Loading…</p>
+    <p class="details-toggle"><button type="button" class="toggle" id="warn-toggle" aria-expanded="false" aria-controls="warn-list">Show the full warning list</button></p>
+    <ul id="scam-rules" class="closed"></ul>
+  </section>
+
+  <div class="divider">
+    <h2>Documents to have ready before you search</h2>
+    <ul id="core-docs"></ul>
+  </div>
+
+  <div class="controls">
+    <label class="search-label" for="search">Search&nbsp;all&nbsp;cards:</label>
+    <input type="search" id="search" placeholder="e.g. pension, refund, Indiana, bonds…" autocomplete="off">
+    <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+  </div>
+
+  <p id="count" role="status"></p>
+  <section class="cards" id="cards" aria-live="polite"></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Built and maintained by Asdale Dynamics, LLC.</strong> Free with no ads and no affiliate links — this site is paid for by nobody on the list above.</p>
+    <p>Licensed MIT — see LICENSE in the repository. Data file: <code>data/finders.json</code>. If a link stops working, tell the maintainers or check the parent agency's homepage.</p>
+    <p>Copyright (c) 2026 Asdale Dynamics, LLC.</p>
+  </div>
+</footer>
+
+<script>
+/* APP-BEGIN */
+(function () {
+  "use strict";
+
+  var DATA = __BUILD_DATA__;
+
+  var CATEGORY_LABELS = {
+    "state-unclaimed-property": "State unclaimed property",
+    "federal-pension": "Federal pension",
+    "bank-credit-union": "Bank & credit union",
+    "insurance": "Insurance",
+    "tax-refund": "Tax refunds",
+    "savings-bonds": "Savings bonds",
+    "other-federal-refund": "Other federal refunds"
+  };
+
+  function filterFinders(finders, category, query) {
+    var q = String(query || "").trim().toLowerCase();
+    var out = [];
+    for (var i = 0; i < finders.length; i++) {
+      var f = finders[i];
+      if (category && category !== "all" && f.category !== category) continue;
+      if (q) {
+        var hay = [f.name, f.category, f.jurisdiction, f.operator, f.what_it_finds, f.tips,
+                   CATEGORY_LABELS[f.category] || ""].join(" \n ").toLowerCase();
+        if (hay.indexOf(q) === -1) continue;
+      }
+      out.push(f);
+    }
+    return out;
+  }
+
+  function cardHtml(f) {
+    var docs = "";
+    for (var i = 0; i < f.docs_ready.length; i++) {
+      docs += "<li>" + esc(f.docs_ready[i]) + "</li>";
+    }
+    var label = CATEGORY_LABELS[f.category] || f.category;
+    return '<article class="card" id="card-' + esc(f.id) + '">' +
+      '<h3>' + esc(f.name) + '</h3>' +
+      '<div class="badges">' +
+        '<span class="badge">' + esc(label) + '</span>' +
+        '<span class="badge jur">' + esc(f.jurisdiction) + '</span>' +
+      '</div>' +
+      '<p class="operator">Run by: ' + esc(f.operator) + '</p>' +
+      '<p class="finds"><strong>What it finds:</strong> ' + esc(f.what_it_finds) + '</p>' +
+      '<h4>Have ready</h4>' +
+      '<ul class="docs">' + docs + '</ul>' +
+      '<p class="tips"><strong>Tips:</strong> ' + esc(f.tips) + '</p>' +
+      '<a class="go" href="' + esc(f.url) + '" rel="noopener noreferrer">Open the official site ↗</a>' +
+      '<p class="free">&#10003; Free &bull; official source &bull; never pay a finder for this</p>' +
+      '</article>';
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function init() {
+    var root = document;
+    if (!root) return;
+
+    var cards = root.getElementById("cards");
+    var search = root.getElementById("search");
+    var filters = root.getElementById("filters");
+    var count = root.getElementById("count");
+    var scamRules = root.getElementById("scam-rules");
+    var scamHeadline = root.getElementById("scam-headline");
+    var coreDocs = root.getElementById("core-docs");
+    var warnToggle = root.getElementById("warn-toggle");
+    if (!cards) return;
+
+    var state = { category: "all" };
+
+    function render() {
+      var shown = filterFinders(DATA.finders, state.category, search ? search.value : "");
+      var html = "";
+      for (var i = 0; i < shown.length; i++) html += cardHtml(shown[i]);
+      cards.innerHTML = html;
+      if (count) {
+        count.textContent = shown.length + " of " + DATA.finders.length + " official finders shown" +
+          (state.category === "all" ? "" : " — category: " + (CATEGORY_LABELS[state.category] || state.category));
+      }
+    }
+
+    var cats = ["all"];
+    var seen = {};
+    for (var i = 0; i < DATA.finders.length; i++) {
+      var c = DATA.finders[i].category;
+      if (!seen[c]) { seen[c] = true; cats.push(c); }
+    }
+    if (filters) {
+      var fhtml = "";
+      for (var j = 0; j < cats.length; j++) {
+        var val = cats[j];
+        var lab = val === "all" ? "All" : (CATEGORY_LABELS[val] || val);
+        fhtml += '<button type="button" data-cat="' + esc(val) + '" aria-pressed="' +
+                 (val === "all" ? "true" : "false") + '">' + esc(lab) + "</button>";
+      }
+      filters.innerHTML = fhtml;
+      filters.addEventListener("click", function (ev) {
+        var btn = ev.target && ev.target.closest ? ev.target.closest("button[data-cat]") : null;
+        if (!btn) return;
+        state.category = btn.getAttribute("data-cat");
+        var bs = filters.querySelectorAll("button[data-cat]");
+        for (var k = 0; k < bs.length; k++) {
+          bs[k].setAttribute("aria-pressed", bs[k] === btn ? "true" : "false");
+        }
+        render();
+      });
+    }
+
+    if (search) search.addEventListener("input", render);
+
+    if (scamHeadline && DATA.scam_warning) scamHeadline.textContent = DATA.scam_warning.headline;
+    if (scamRules && DATA.scam_warning) {
+      var rhtml = "";
+      for (var r = 0; r < DATA.scam_warning.rules.length; r++) {
+        rhtml += "<li>" + esc(DATA.scam_warning.rules[r]) + "</li>";
+      }
+      scamRules.innerHTML = rhtml;
+    }
+    if (warnToggle && scamRules) {
+      warnToggle.addEventListener("click", function () {
+        var open = scamRules.classList.toggle("closed") === false;
+        warnToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        warnToggle.textContent = open ? "Hide the full warning list" : "Show the full warning list";
+      });
+    }
+
+    if (coreDocs && DATA.core_documents) {
+      var dhtml = "";
+      for (var d = 0; d < DATA.core_documents.items.length; d++) {
+        dhtml += "<li>" + esc(DATA.core_documents.items[d]) + "</li>";
+      }
+      coreDocs.innerHTML = dhtml;
+    }
+
+    render();
+  }
+
+  var exports = {
+    DATA: DATA,
+    filterFinders: filterFinders,
+    cardHtml: cardHtml,
+    init: init
+  };
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = exports;
+  } else {
+    window.__findersApp = exports;
+    if (typeof document !== "undefined") init();
+  }
+})();
+/* APP-END */
+</script>
+
+<noscript>
+  <div class="wrap" style="max-width:70rem;margin:1rem auto;">
+    <p><strong>JavaScript is off.</strong> Every finder in this directory is also documented in plain text in the repository's <code>README.md</code> and <code>data/finders.json</code>, so nothing is hidden behind the cards.</p>
+  </div>
+</noscript>
+</body>
+</html>

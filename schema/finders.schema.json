@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema/finders.schema.json",
+  "title": "Free Unclaimed Money Directory data",
+  "description": "Schema for the JSON data behind the offline single-file directory of official free unclaimed-money finders maintained by Asdale Dynamics, LLC.",
+  "type": "object",
+  "required": ["version", "updated", "disclaimer", "scam_warning", "core_documents", "finders"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "updated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "disclaimer": { "type": "string", "minLength": 1 },
+    "scam_warning": {
+      "type": "object",
+      "required": ["headline", "rules"],
+      "additionalProperties": false,
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "rules": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "core_documents": {
+      "type": "object",
+      "required": ["headline", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "items": { "type": "array", "minItems": 3, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "finders": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category", "jurisdiction", "operator", "url", "what_it_finds", "docs_ready", "tips"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "category": {
+            "type": "string",
+            "enum": [
+              "state-unclaimed-property",
+              "federal-pension",
+              "bank-credit-union",
+              "insurance",
+              "tax-refund",
+              "savings-bonds",
+              "other-federal-refund"
+            ]
+          },
+          "jurisdiction": { "type": "string", "minLength": 1 },
+          "operator": { "type": "string", "minLength": 1 },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Must be the official source (.gov, or an official state-officer/industry-regulator site such as unclaimed.org, missingmoney.com, or eapps.naic.org). Never an affiliate link."
+          },
+          "what_it_finds": { "type": "string", "minLength": 30 },
+          "docs_ready": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string", "minLength": 3 }
+          },
+          "tips": { "type": "string", "minLength": 20 }
+        }
+      }
+    }
+  }
+}
